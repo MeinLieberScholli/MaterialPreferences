@@ -110,7 +110,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
         seekBar.setProgress(value - minValue);
     }
 
-    private int getSeekBarValue() {
+    public int getSeekBarValue() {
         return seekBar.getProgress();
     }
 
