@@ -75,6 +75,16 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
         setSeekBarValue(getValue());
     }
 
+    public void setMinValue(int minValue) {
+        this.minValue = minValue;
+        seekBar.setMax(maxValue - minValue);
+    }
+
+    public void setMaxValue(int maxValue) {
+        this.maxValue = maxValue;
+        seekBar.setMax(maxValue - minValue);
+    }
+
     @Override
     public Integer getValue() {
         try {

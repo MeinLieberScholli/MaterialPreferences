@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.yarolegovich.mp.MaterialPreferenceScreen;
+import com.yarolegovich.mp.MaterialSeekBarPreference;
 
 /**
  * Created by yarolegovich on 15.05.2016.
@@ -27,6 +28,9 @@ public class FillTheFormActivity extends ToolbarActivity {
         FormInitializer formInitializer = new FormInitializer(form);
         formInitializer.onRestoreInstanceState(savedInstanceState);
         screen.setStorageModule(formInitializer);
+
+        MaterialSeekBarPreference seekBarPreference = (MaterialSeekBarPreference) findViewById(R.id.experience);
+        seekBarPreference.setMaxValue(3);
     }
 
     @Override

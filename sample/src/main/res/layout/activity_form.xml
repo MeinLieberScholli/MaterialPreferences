@@ -27,6 +27,7 @@
                 app:mp_title="@string/techs_you_know" />
 
             <com.yarolegovich.mp.MaterialSeekBarPreference
+                android:id="@+id/experience"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:mp_default_value="2"
