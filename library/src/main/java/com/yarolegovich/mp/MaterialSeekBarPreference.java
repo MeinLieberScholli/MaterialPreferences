@@ -28,7 +28,6 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
     private int minValue;
     private int maxValue;
     private boolean showValue;
-    private String valueFormat = "%d";
 
     public MaterialSeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -99,11 +98,6 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
     public void setValue(Integer value) {
         storageModule.saveInt(key, value);
         setSeekBarValue(value);
-        this.value.setText(String.format(valueFormat, value));
-    }
-
-    public void setValueFormat(String format) {
-        valueFormat = format;
     }
 
     @Override
@@ -116,6 +110,10 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
         seekBar.setProgress(value - minValue);
     }
 
+    private int getSeekBarValue() {
+        return seekBar.getProgress();
+    }
+
     @Override
     protected int getLayout() {
         return R.layout.view_seekbar_preference;
@@ -125,7 +123,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            setValue(progress + minValue);
+            value.setText(String.valueOf(progress + minValue));
         }
 
         @Override
