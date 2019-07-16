@@ -29,8 +29,8 @@ public class FillTheFormActivity extends ToolbarActivity {
         formInitializer.onRestoreInstanceState(savedInstanceState);
         screen.setStorageModule(formInitializer);
 
-        MaterialSeekBarPreference seekBarPreference = (MaterialSeekBarPreference) findViewById(R.id.experience);
-        seekBarPreference.setMaxValue(3);
+//        MaterialSeekBarPreference seekBarPreference = (MaterialSeekBarPreference) findViewById(R.id.experience);
+//        seekBarPreference.setMaxValue(3);
     }
 
     @Override
