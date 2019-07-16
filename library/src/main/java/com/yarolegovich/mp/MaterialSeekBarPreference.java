@@ -99,6 +99,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
     public void setValue(Integer value) {
         storageModule.saveInt(key, value);
         setSeekBarValue(value);
+        this.value.setText(String.format(valueFormat, value));
     }
 
     public void setValueFormat(String format) {
@@ -125,7 +126,6 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             setValue(progress + minValue);
-            value.setText(String.format(valueFormat, progress + minValue));
         }
 
         @Override
@@ -136,7 +136,6 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             setValue(seekBar.getProgress() + minValue);
-            value.setText(String.format(valueFormat, seekBar.getProgress() + minValue));
         }
     }
 }
