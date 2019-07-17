@@ -28,6 +28,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
     private int minValue;
     private int maxValue;
     private boolean showValue;
+    private String valueFormat;
 
     public MaterialSeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -57,6 +58,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
             maxValue = ta.getInt(MaterialSeekBarPreference_mp_max_val, 10);
             minValue = ta.getInt(MaterialSeekBarPreference_mp_min_val, 0);
             showValue = ta.getBoolean(MaterialSeekBarPreference_mp_show_val, false);
+            valueFormat = ta.getString(MaterialSeekBarPreference_mp_format_val);
         } finally {
             ta.recycle();
         }
@@ -111,7 +113,14 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
     }
 
     public int getSeekBarValue() {
-        return seekBar.getProgress();
+        return seekBar.getProgress() + minValue;
+    }
+
+    public void setText(int value) {
+        if (valueFormat == null)
+            this.value.setText(String.valueOf(value));
+        else
+            this.value.setText(String.format(valueFormat, value));
     }
 
     @Override
@@ -123,7 +132,7 @@ public class MaterialSeekBarPreference extends AbsMaterialPreference<Integer> {
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            value.setText(String.valueOf(progress + minValue));
+            setText(progress + minValue);
         }
 
         @Override

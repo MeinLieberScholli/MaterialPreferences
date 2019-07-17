@@ -40,6 +40,7 @@
         <attr name="mp_max_val" format="integer"/>
         <attr name="mp_min_val" format="integer"/>
         <attr name="mp_show_val" format="boolean"/>
+        <attr name="mp_format_val" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="MaterialColorPreference">
