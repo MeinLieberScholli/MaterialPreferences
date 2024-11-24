@@ -3,7 +3,8 @@ package com.yarolegovich.mp.io;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by yarolegovich on 16.05.2016.

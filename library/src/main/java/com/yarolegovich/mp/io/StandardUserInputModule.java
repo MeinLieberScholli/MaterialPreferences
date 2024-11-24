@@ -3,20 +3,13 @@ package com.yarolegovich.mp.io;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
-import com.pavelsikun.vintagechroma.ChromaDialog;
-import com.pavelsikun.vintagechroma.IndicatorMode;
-import com.pavelsikun.vintagechroma.OnColorSelectedListener;
-import com.pavelsikun.vintagechroma.colormode.ColorMode;
+import androidx.appcompat.app.AlertDialog;
+
 import com.yarolegovich.mp.R;
-import com.yarolegovich.mp.util.Utils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -116,32 +109,5 @@ public class StandardUserInputModule implements UserInputModule {
                     }
                 })
                 .show();
-    }
-
-    @Override
-    public void showColorSelectionInput(
-            String key,
-            CharSequence title,
-            int defaultColor,
-            final Listener<Integer> colorListener) {
-        FragmentActivity activity;
-        try {
-            activity = (FragmentActivity) context;
-        } catch (ClassCastException exc) {
-            throw new AssertionError(context.getString(R.string.exc_not_frag_activity_subclass));
-        }
-        String tag = colorListener.getClass().getSimpleName();
-        new ChromaDialog.Builder()
-                .initialColor(defaultColor)
-                .colorMode(ColorMode.ARGB)
-                .indicatorMode(IndicatorMode.HEX)
-                .onColorSelected(new OnColorSelectedListener() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        colorListener.onInput(color);
-                    }
-                })
-                .create()
-                .show(activity.getSupportFragmentManager(), tag);
     }
 }

@@ -4,10 +4,6 @@ import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -16,6 +12,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import static com.yarolegovich.mp.util.Utils.*;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by yarolegovich on 01.05.2016.

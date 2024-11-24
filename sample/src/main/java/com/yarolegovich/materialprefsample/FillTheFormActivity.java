@@ -1,14 +1,10 @@
 package com.yarolegovich.materialprefsample;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
 import com.yarolegovich.mp.MaterialPreferenceScreen;
-import com.yarolegovich.mp.MaterialSeekBarPreference;
 
 /**
  * Created by yarolegovich on 15.05.2016.

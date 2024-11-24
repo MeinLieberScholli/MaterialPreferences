@@ -5,7 +5,7 @@
     android:id="@+id/preference_screen"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.yarolegovich.mp.MainActivity">
+    tools:context=".AppConfigsActivity">
 
     <include layout="@layout/toolbar" />
 

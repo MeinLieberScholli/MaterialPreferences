@@ -2,10 +2,7 @@ package com.yarolegovich.mp;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -13,9 +10,9 @@ import android.widget.TextView;
 import com.yarolegovich.mp.io.StorageModule;
 import com.yarolegovich.mp.util.Utils;
 
-import java.util.Arrays;
-
 import static com.yarolegovich.mp.R.styleable.*;
+
+import androidx.appcompat.widget.AppCompatSeekBar;
 
 /**
  * Created by yarolegovich on 15.05.2016.

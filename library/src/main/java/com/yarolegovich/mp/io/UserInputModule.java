@@ -31,12 +31,6 @@ public interface UserInputModule {
             boolean[] defaultSelection,
             Listener<Set<String>> listener);
 
-    void showColorSelectionInput(
-            String key,
-            CharSequence title,
-            int defaultColor,
-            Listener<Integer> color);
-
     interface Factory {
         UserInputModule create(Context context);
     }

@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'com.yarolegovich.materialprefsample'
+
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "com.yarolegovich.materialprefsample"
@@ -17,11 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
-    implementation "com.yarolegovich:mp:1.0.9"
-    implementation "com.yarolegovich:lovelyinput:1.0.9"
+    implementation project(':library')
+    implementation project(':lovelyinput')
     implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
     implementation "com.android.support:design:${rootProject.supportLibVersion}"
 }

@@ -1,15 +1,16 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven-publish'
 
 android {
+    namespace 'com.yarolegovich.mp'
+
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.18"
     }
     buildTypes {
         release {
@@ -17,23 +18,51 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
     implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
     implementation "com.android.support:cardview-v7:${rootProject.supportLibVersion}"
-    implementation ("com.pavelsikun:vintage-chroma:1.5") {
-        exclude group: 'com.android.support'
+}
+
+group = rootProject.groupId
+version = android.defaultConfig.versionName
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = rootProject.groupId
+            artifactId = 'mp'
+            version = android.defaultConfig.versionName
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
     }
 }
 
-publish {
-    artifactId = 'mp'
-    userOrg = rootProject.userOrg
-    groupId = rootProject.groupId
-    uploadName = rootProject.uploadName
-    publishVersion = '1.0.9'
-    description = 'A highly flexible set of lovely looking views that provides functionality of preferences.'
-    licences = rootProject.licences
-}
+//publish {
+//    artifactId = 'mp'
+//    userOrg = rootProject.userOrg
+//    groupId = rootProject.groupId
+//    uploadName = rootProject.uploadName
+//    publishVersion = '1.0.9'
+//    description = 'A highly flexible set of lovely looking views that provides functionality of preferences.'
+//    licences = rootProject.licences
+//}
 

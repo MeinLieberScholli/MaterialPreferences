@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.yarolegovich.lovelyuserinput.LovelyInput;
 import com.yarolegovich.mp.io.MaterialPreferences;
@@ -41,13 +42,11 @@ SharedPreferences.OnSharedPreferenceChangeListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.pref_form:
-                startActivity(new Intent(this, FillTheFormActivity.class));
-                break;
-            case R.id.pref_configs:
-                startActivity(new Intent(this, AppConfigsActivity.class));
-                break;
+        int id = v.getId();
+        if (id == R.id.pref_form) {
+            startActivity(new Intent(this, FillTheFormActivity.class));
+        } else if (id == R.id.pref_configs) {
+            startActivity(new Intent(this, AppConfigsActivity.class));
         }
     }
 

@@ -3,9 +3,9 @@ package com.yarolegovich.lovelyuserinput;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.yarolegovich.lovelydialog.AbsLovelyDialog;
-import com.yarolegovich.lovelydialog.LovelyChoiceDialog;
-import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
+import com.yarolegovich.lovelyuserinput.dialog.AbsLovelyDialog;
+import com.yarolegovich.lovelyuserinput.dialog.LovelyChoiceDialog;
+import com.yarolegovich.lovelyuserinput.dialog.LovelyTextInputDialog;
 import com.yarolegovich.mp.io.StandardUserInputModule;
 
 import java.util.HashSet;
